@@ -1,0 +1,9 @@
+#
+# These things are run when an Openbox X Session is started.
+# You may place a similar script in $HOME/.config/openbox/autostart
+# to run user-specific things.
+#
+steam &
+~/.fehbg &
+tint2 -c ~/.config/tint2/clock.tint2rc &
+tint2 -c ~/.config/tint2/tray.tint2rc &
