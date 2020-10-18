@@ -4,6 +4,5 @@
 # to run user-specific things.
 #
 steam &
-~/.fehbg &
-tint2 -c ~/.config/tint2/clock.tint2rc &
-tint2 -c ~/.config/tint2/tray.tint2rc &
+~/.config/feh/autostart &
+~/.config/tint2/autostart &

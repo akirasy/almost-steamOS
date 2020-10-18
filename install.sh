@@ -130,12 +130,16 @@ function copy_config {
     # ------ tint2 ------ 
     echo -e "${bcyan}Configure setting:${endcolor} tint2"
     mkdir -p /home/$user_name/.config/tint2
-    cp $PWD/config/tint2/* /home/$user_name/.config/tint2/
+    sed "s/steam/$user_name/g" -i $PWD/config/tint2/combined.tint2rc
+    cp $PWD/config/tint2/* /home/$user_name/.config/tint2
+    cp $PWD/img/power-button.svg /home/$user_name/.config/tint2
     chown $user_name:$user_name /home/$user_name/.config/tint2
-    chown $user_name:$user_name /home/$user_name/.config/tint2/clock.tint2rc
-    chown $user_name:$user_name /home/$user_name/.config/tint2/tray.tint2rc
-    chmod 644 /home/$user_name/.config/tint2/clock.tint2rc
-    chmod 644 /home/$user_name/.config/tint2/tray.tint2rc
+    chown $user_name:$user_name /home/$user_name/.config/tint2/combined.tint2rc
+    chown $user_name:$user_name /home/$user_name/.config/tint2/power-button.svg
+    chown $user_name:$user_name /home/$user_name/.config/tint2/autostart
+    chmod 644 /home/$user_name/.config/tint2/combined.tint2rc
+    chmod 644 /home/$user_name/.config/tint2/power-button.svg
+    chmod 755 /home/$user_name/.config/tint2/autostart
     # ------ feh ------ 
     echo -e "${bcyan}Configure setting:${endcolor} feh"
     sed "s/steam/$user_name/g" -i $PWD/config/feh/fehbg
@@ -151,7 +155,7 @@ function copy_config {
 
 function web_browser {
     echo -e "\n\n${bcyan}Which web browser do you prefer?${endcolor}"
-    echo "    1) Google Chrome" # GPG key error
+    echo "    1) Google Chrome"
     echo "    2) Chromium"
     echo "    3) Falkon"
     echo "    4) Firefox ESR"
