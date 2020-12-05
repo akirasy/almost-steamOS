@@ -41,6 +41,17 @@
     </action>
   </item>
   <separator />
+  <item label="Ping Steam">
+    <action name="Execute">
+      <execute>x-terminal-emulator --geometry=110x10 --command="ping -c 25 sgp-1.valve.net"</execute>
+    </action>
+  </item>
+  <item label="Ping Google">
+    <action name="Execute">
+      <execute>x-terminal-emulator --geometry=110x10 --command="ping -c 25 www.google.com"</execute>
+    </action>
+  </item>
+  <separator />
   <item label="Refresh">
     <action name="Reconfigure" />
   </item>

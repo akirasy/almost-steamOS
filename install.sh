@@ -131,8 +131,7 @@ function copy_config {
     echo -e "${bcyan}Configure setting:${endcolor} tint2"
     mkdir -p /home/$user_name/.config/tint2
     sed "s/steam/$user_name/g" -i $PWD/config/tint2/combined.tint2rc
-    cp $PWD/config/tint2/* /home/$user_name/.config/tint2
-    cp $PWD/img/power-button.svg /home/$user_name/.config/tint2
+    cp $PWD/config/tint2/* /home/$user_name/.config/tint2/
     chown $user_name:$user_name /home/$user_name/.config/tint2
     chown $user_name:$user_name /home/$user_name/.config/tint2/combined.tint2rc
     chown $user_name:$user_name /home/$user_name/.config/tint2/power-button.svg
@@ -144,8 +143,7 @@ function copy_config {
     echo -e "${bcyan}Configure setting:${endcolor} feh"
     sed "s/steam/$user_name/g" -i $PWD/config/feh/fehbg
     mkdir -p /home/$user_name/.config/feh
-    cp $PWD/config/feh/autostart /home/$user_name/.config/feh/autostart
-    cp $PWD/img/wallpaper.png /home/$user_name/.config/feh/wallpaper.png
+    cp $PWD/config/feh/* /home/$user_name/.config/feh/
     chown $user_name:$user_name /home/$user_name/.config/feh
     chown $user_name:$user_name /home/$user_name/.config/feh/autostart
     chown $user_name:$user_name /home/$user_name/.config/feh/wallpaper.png

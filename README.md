@@ -39,6 +39,9 @@ sudo bash install.sh
 - Wait the install and agree to the respective prompt.
 
 ## Tips & Tricks
+### Install [Discord](https://discord.com/)
+Discord is not installed by default because download links changes every updates
+You might need to go to the official website and install it manually.
 ### Change wallpaper
 This build uses `feh` as desktop wallpaper.<br>
 To change wallpaper, follow these steps:
@@ -46,3 +49,30 @@ To change wallpaper, follow these steps:
 2. Open `~/.config/feh/autostart` using text editor and edit your wallpaper path.
 
 You might want to explore more at [feh documentation](https://manpages.debian.org/buster/feh/feh.1.en.html).
+### Disable autologin
+This build uses `LightDM` as login manager.<br>
+To disable autologin, follow these steps:
+1. Open up `/etc/lightdm/lightdm.conf`
+2. Comment out these lines below
+```
+#autologin-guest=false
+#autologin-user=steam
+#autologin-user-timeout=0
+```
+3. Restart system and you'll be greeted with default LightDM login manager
+
+You might want to explore more at [LightDM GitHub site](https://github.com/canonical/lightdm).
+
+## Known bugs
+### Discord crashes randomly during calls
+This happens quite often and searching the net tells me that this happens to other people too.
+I created a workaround by create a bash script that loops on restarting discord once it crashes.<br>
+Below is the bash script:
+```
+#!/usr/bin/env bash
+
+while [ True ]; do
+    sleep 1
+    discord
+done
+```
