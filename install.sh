@@ -6,7 +6,7 @@ cyan="\033[0;36m"
 bgreen="\033[1;32m"
 bcyan="\033[1;36m"
 
-function check_sudo {  # change this to case switch
+function check_sudo { 
     case $EUID in
         0) clear; echo -e "\n${bcyan}Sudo priviledge: Granted${endcolor}\n" ;;
         *) echo -e "\n${bcyan}Installer must be run as sudo.${endcolor}\n" 
@@ -87,6 +87,7 @@ function install_online {
     read -p "Press ENTER to continue..."
     cp $PWD/config/apt/sources.list /etc/apt/sources.list
     apt -y update; apt -y install tint2 feh \
+                   xfe \
                    firmware-misc-nonfree \
                    firmware-realtek
 }
@@ -98,7 +99,9 @@ function install_graphic {
         NVIDIA) echo "Installing NVIDIA drivers."
                 apt -y install nvidia-driver \
                                nvidia-driver-libs-i386 ;;
-             *) echo "VGA type not supported." ;;
+             *) echo "VGA type not supported." 
+                echo "Please install graphic driver manually later."
+                sleep 5 ;;
     esac
 }
 

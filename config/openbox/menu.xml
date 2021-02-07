@@ -6,10 +6,30 @@
                 file:///usr/share/openbox/menu.xsd">
 
 <menu id="root-menu" label="Openbox 3">
+  <!-- This requires the presence of the 'openbox-menu' package to work -->
+  <menu id="/Debian" />
+  <menu id="applications-menu" label="Applications" execute="/usr/bin/obamenu"/>
+  <item label="Web browser">
+    <action name="Execute">
+      <execute>x-www-browser</execute>
+    </action>
+  </item>
+  <separator />
   <item label="Terminal emulator">
      <action name="Execute">
        <execute>x-terminal-emulator</execute>
      </action>
+  </item>
+  <item label="Check internet">
+    <action name="Execute">
+      <execute>x-terminal-emulator --geometry=110x10 --command="ping -c 25 www.google.com"</execute>
+    </action>
+  </item>
+  <separator />
+  <item label="File Manager">
+    <action name="Execute">
+      <execute>xfe</execute>
+    </action>
   </item>
   <item label="Network Manager">
     <action name="Execute">
@@ -19,36 +39,6 @@
   <item label="Audio Manager">
     <action name="Execute">
       <execute>pavucontrol</execute>
-    </action>
-  </item>
-  <!-- This requires the presence of the 'openbox-menu' package to work -->
-  <menu id="/Debian" />
-  <separator />
-  <menu id="applications-menu" label="Applications" execute="/usr/bin/obamenu"/>
-  <item label="Web browser">
-    <action name="Execute">
-      <execute>x-www-browser</execute>
-    </action>
-  </item>
-  <item label="Discord">
-    <action name="Execute">
-      <execute>discord</execute>
-    </action>
-  </item>
-  <item label="Steam">
-    <action name="Execute">
-      <execute>steam</execute>
-    </action>
-  </item>
-  <separator />
-  <item label="Ping Steam">
-    <action name="Execute">
-      <execute>x-terminal-emulator --geometry=110x10 --command="ping -c 25 sgp-1.valve.net"</execute>
-    </action>
-  </item>
-  <item label="Ping Google">
-    <action name="Execute">
-      <execute>x-terminal-emulator --geometry=110x10 --command="ping -c 25 www.google.com"</execute>
     </action>
   </item>
   <separator />
